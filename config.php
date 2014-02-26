@@ -31,7 +31,7 @@
 		'ownaddress' => '1MSkXPRK293dDMD5ds6KqVtyDadDkRyanX', // Your address
 		'ponziacc' => 'btc',																	// Name of daemon account
 		'address' => '1ponzisApJfHtgrwP7CrpfEgseBmPcRD4',			// Ponzi address
-		'privkey' => ''																				// Needed in setup, private key of your address
+		'privkey' => '',																			// Needed in setup, private key of your address
 		'blockchain-addr' => 'https://blockchain.info/en/address/',
 		'blockchain-tx' => 'https://blockchain.info/en/tx/'
 	);

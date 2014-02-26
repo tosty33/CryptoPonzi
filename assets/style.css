@@ -1,0 +1,46 @@
+body {
+  padding-top: 20px;
+	background-color: black;
+	background-image: url(ao.gif);
+}
+
+#faq  p {
+ font-size: 16px;
+}
+
+#faq h2 {
+	font-size: 22px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+
+#header {
+	font-size: 22px;
+	margin-bottom: 0px;
+	background: #e78317;
+	padding: 20px;
+	color: white;
+	margin-left: -20px;
+	margin-right: -20px;
+	
+	margin-bottom: 10px;
+}
+
+#address-wrapper {
+	border: 1px solid rgb(229, 229, 229);
+	border-radius: 10px;
+	background-color: white;
+	box-shadow: 0px 0px 10px 5px rgb(221, 221, 221);
+	font-size: 24px;
+	padding: 10px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+#footer {
+	text-align: center;
+}

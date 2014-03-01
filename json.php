@@ -3,9 +3,9 @@
 	$json = array();
 	
 	if ($_GET['what'] == "all" || $_GET['what'] == "")
-		$query = mysql_query('SELECT * FROM `transactions` WHERE `amount` > 0 ORDER BY id DESC, state DESC LIMIT 20;');
+		$query = mysql_query('SELECT * FROM `transactions` WHERE `amount` > 0 AND `state` < 3 ORDER BY id DESC, state DESC LIMIT 20;');
 	else
-		$query = mysql_query('SELECT * FROM `transactions` WHERE `tx` = "' . mysql_real_escape_string($_GET['what']) . '" LIMIT 1;');
+		$query = mysql_query('SELECT * FROM `transactions` WHERE `tx` = "' . mysql_real_escape_string($_GET['what']) . '" AND `state` < 3 LIMIT 1;');
 
 	$transactions = array();
 	while($row = mysql_fetch_assoc($query)) 
@@ -28,13 +28,13 @@
 	$json['actual'] = mysql_fetch_assoc($query);
 	
 	//$query = mysql_query("SELECT COUNT(col) FROM table");
-	$query = mysql_query("SELECT COUNT(*) FROM `transactions` WHERE `amount` > 0");
+	$query = mysql_query("SELECT COUNT(*) FROM `transactions` WHERE `amount` > 0 AND `state` < 3;");
 	$query = mysql_fetch_row($query);
 	
 	$json['count'] = $query[0];
 	
 	// Received
-	$query = mysql_query("SELECT SUM(amount) FROM `transactions`;");
+	$query = mysql_query("SELECT SUM(amount) FROM `transactions` WHERE `state` < 3;");
 	$query = mysql_fetch_row($query);
 	
 	$json['received'] = $query[0];

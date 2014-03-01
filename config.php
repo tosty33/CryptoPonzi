@@ -29,6 +29,7 @@
 		'fee' => 0.01,																				// Fee taken from pay in amount
 		'payout-check' => 180,																// Time between payouts
 		'ownaddress' => '1MSkXPRK293dDMD5ds6KqVtyDadDkRyanX', // Your address
+		'sendback' => false,																	// What to do with txs that are over maximum or under minimum | true - send back, false - send to your address
 		'ponziacc' => 'btc',																	// Name of daemon account
 		'address' => '1ponzisApJfHtgrwP7CrpfEgseBmPcRD4',			// Ponzi address
 		'privkey' => '',																			// Needed in setup, private key of your address

@@ -52,9 +52,13 @@
 				{
 					if ($trans['amount'] < 0)
 						continue;
-				
-					$client->sendtoaddress($config['ownaddress'], $trans['amount']);
-					mysql_query("INSERT INTO `transactions` (`id`, `amount`, `topay`, `address`, `state`, `tx`, `date`) VALUES (NULL, '0', '0', '0', '2', '" . $trans['txid'] . "', " . (time()) . ");");
+
+					if ($config['sendback'])
+						$client->sendtoaddress(getAddress($trans), $trans['amount'] - ($trans['amount'] * $config['fee']));
+					else
+						$client->sendtoaddress($config['ownaddress'], $trans['amount'] - ($trans['amount'] * $config['fee']));
+						
+					mysql_query("INSERT INTO `transactions` (`id`, `amount`, `topay`, `address`, `state`, `tx`, `date`) VALUES (NULL, '" . $trans['amount'] . "', '0', '0', '3', '" . $trans['txid'] . "', " . (time()) . ");");
 					print($trans['amount'] + " - Payment has been sent to you!\n");
 					continue;
 				}

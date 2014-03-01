@@ -11,7 +11,7 @@
 	Note: <strong>do not</strong> send from a web wallet.<br>
 	
 	<?php if($config['fee'] > 0): ?>
-	<h6 style="text-align: center; color: rgb(200,200,200)"><b>Note:</b> We are taking <?php echo($config['fee'] * 100) ?>% transaction fee to keep us going :-)</h6>
+	<h6 style="text-align: center; color: rgb(200,200,200)"><strong>Note:</strong> We are taking <?php echo($config['fee'] * 100) ?>% transaction fee to keep us going :-)</h6>
 	<?php endif; ?>
 </div>
 
@@ -54,11 +54,11 @@
 			<label class="sr-only" for="search">Transaction ID</label>
 			<input type="email" class="form-control" id="tid" placeholder="Enter transaction ID...">
 		</div>
-		<button type="submit" class="btn btn-info" id="search" onclick="search()">Search</button>
-		<button type="submit" class="btn btn-default" id="search" onclick="showall()">Show all</button>
+		<button type="submit" class="btn btn-info" onclick="search()">Search</button>
+		<button type="submit" class="btn btn-default" onclick="showall()">Show all</button>
 	</div>
-	<h6 style="text-align: center; color: rgb(200,200,200)"><b>Note:</b> Payouts are sent every <?php echo $config['payout-check'] / 60 ?> minutes.</h6>
-	<h6 style="text-align: center; color: rgb(200,200,200)"><b>Note:</b> Transactions are added after <?php echo $config['confirmations'] ?> confirmation<?php if($config['confirmations'] > 1) echo 's'; ?></h6>
+	<h6 style="text-align: center; color: rgb(200,200,200)"><strong>Note:</strong> Payouts are sent every <?php echo $config['payout-check'] / 60 ?> minutes.</h6>
+	<h6 style="text-align: center; color: rgb(200,200,200)"><strong>Note:</strong> Transactions are added after <?php echo $config['confirmations'] ?> confirmation<?php if($config['confirmations'] > 1) echo 's'; ?></h6>
 </div>
 
 <script>

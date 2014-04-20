@@ -12,8 +12,9 @@ txindex = 1
 5. Run **setup.php** script to add your address to the daemon
 6. Add **transactions.sql** schema to your database
 7. Run **script.php** script from CLI, it should be running in background
-8. ???
-9. Profit!
+8. Install php5-json for the transactions to display properly
+9. ???
+10. Profit!
 
 Useful links
 ===========

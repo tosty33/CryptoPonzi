@@ -76,15 +76,15 @@
 			}
 		}
 		
-		$query = mysql_query("SELECT SUM(amount) FROM `transactions`;");
+		$query = mysql_query("SELECT SUM(amount) FROM `transactions` where `state` < 3;");
 		$query = mysql_fetch_row($query);
 		$money = $query[0];
 		
-		$query = mysql_query("SELECT SUM(topay) FROM `transactions` WHERE `state` > 0;");
+		$query = mysql_query("SELECT SUM(topay) FROM `transactions` WHERE `state` > 0 and `state` < 3;");
 		$query = mysql_fetch_row($query);
 		$money -= $query[0];
 		
-		$query = mysql_query("SELECT * FROM `transactions` WHERE `state` = 0 AND `topay` > 0 ORDER BY `id` ASC;");
+		$query = mysql_query("SELECT * FROM `transactions` WHERE `state` = 0 AND `state` < 3 AND `topay` > 0 ORDER BY `id` ASC;");
 		while($row = mysql_fetch_assoc($query))
 		{
 			print("Money: " . $money . "\n");

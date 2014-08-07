@@ -90,7 +90,13 @@
 					$('#unpaid').html(parseFloat(data['unpaid']).toFixed(<?php echo $config['precision'] ?>) + ' <?php echo $config['val'] ?>');
 					$('#received').html(parseFloat(data['received']).toFixed(<?php echo $config['precision'] ?>) + ' <?php echo $config['val'] ?>');
 					
-					$('#collecting').html("Collecting " + (parseFloat(data['received']) - parseFloat(data['paid'])).toFixed(<?php echo $config['precision'] ?>) + " / " + parseFloat(data['actual']['topay']).toFixed(<?php echo $config['precision'] ?>) + " for " + data['actual']['tx'].substring(0,32) + "...");
+					var tmp20140808 = "error";
+					if (data['actual']['tx'] === undefined) { // nothing 
+					} else {
+						tmp20140808 = data['actual']['tx'].substring(0,32);
+					}
+					
+					$('#collecting').html("Collecting " + (parseFloat(data['received']) - parseFloat(data['paid'])).toFixed(<?php echo $config['precision'] ?>) + " / " + parseFloat(data['actual']['topay']).toFixed(<?php echo $config['precision'] ?>) + " for " + tmp20140808 + "...");
 					
 					$('#trans').html('');
 					for(var i in data['transactions'])
